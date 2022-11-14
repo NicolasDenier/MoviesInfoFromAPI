@@ -5,4 +5,4 @@ class InfoFilm:
         self.id = id
     
     def __repr__(self) -> str:
-        return f"title: {self.title}\ndescription: {self.description}\n"
+        return f"<b>title:</b> {self.title}<br><b>description:</b> {self.description}<br>"
