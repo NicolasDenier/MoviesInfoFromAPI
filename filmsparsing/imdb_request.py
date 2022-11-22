@@ -7,7 +7,7 @@ class IMDbRequest:
         
     @classmethod
     def get_films(cls):
-        search = input("Film to search: ")
+        search = input("Type the film that you want to search: ")
         response = requests.get(cls._base_url+'SearchMovie/'+config('API_KEY')+"/"+search)
         return Response(status_code=response.status_code, content=response.json()['results'])
     

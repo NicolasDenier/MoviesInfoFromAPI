@@ -1,2 +1,3 @@
 from filmsparsing.imdb_request import IMDbRequest
 from filmsparsing.info_film import InfoFilm
+from filmsparsing.info_film import InfoFilmAll

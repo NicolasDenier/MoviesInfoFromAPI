@@ -1,5 +1,6 @@
 from filmsparsing import IMDbRequest
 from filmsparsing import InfoFilm
+from filmsparsing import InfoFilmAll
 
 class InfoFilmFacade:
 
@@ -21,7 +22,7 @@ class InfoFilmFacade:
             film_info = InfoFilm(film['title'], film['description'], film['id'])
             films.append(film_info)
         
-        return films
+        return films[0]
     
     def get_ratings_film(id) -> [InfoFilmAll]:
         rating = ""
@@ -37,6 +38,7 @@ class InfoFilmFacade:
             print("Error, response code ", response.status_code)
             return rating
         
-        rating = InfoFilmAll(film['title'], film['description'], film['id'])
+        film = response.content
+        infos_film = InfoFilmAll(film['fullTitle'], film['plot'], film['imDbRating'], film['directors'], film['image'], film['actorList'])
         
-        return rating
+        return infos_film
