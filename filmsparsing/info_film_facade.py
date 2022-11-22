@@ -23,7 +23,7 @@ class InfoFilmFacade:
         
         return films
     
-    def get_ratings_film(id):
+    def get_ratings_film(id) -> [InfoFilmAll]:
         rating = ""
 
         try:
@@ -37,6 +37,6 @@ class InfoFilmFacade:
             print("Error, response code ", response.status_code)
             return rating
         
-        rating = response.content["imDb"]
+        rating = InfoFilmAll(film['title'], film['description'], film['id'])
         
         return rating

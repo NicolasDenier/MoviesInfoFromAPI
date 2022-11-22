@@ -13,5 +13,5 @@ class IMDbRequest:
     
     @classmethod
     def get_ratings(cls, id):
-        response = requests.get(cls._base_url+'Ratings/'+config('API_KEY')+"/"+id)
+        response = requests.get(cls._base_url+'Title/'+config('API_KEY')+"/"+id)
         return Response(status_code=response.status_code, content=response.json())
