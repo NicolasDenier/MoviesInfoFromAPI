@@ -1,0 +1,74 @@
+:root {
+  --bg: #EDF7F6;
+  --darkblue: #2D3047;
+  --red: #E84855;
+  --orange: #FF9B71;
+}
+
+
+body{
+  background-color: var(--bg);
+  color: var(--darkblue)
+}
+
+h1{
+  color: var(--red);
+  text-shadow: -1px 0 var(--darkblue), 0 1px var(--darkblue), 1px 0 var(--darkblue), 0 -1px var(--darkblue);
+}
+
+.card {
+  width: 20%;
+  margin: 5px;
+  padding: 5px;
+  border: solid;
+  border-width: 4px;
+  border-radius: 6px;
+  border-color:var(--red);
+}
+
+.button {
+  background-color: var(--bg);
+  border: 2px solid var(--darkblue);
+  border-radius: 30px;
+  box-shadow: var(--darkblue) 4px 4px 0 0;
+  color: var(--darkblue);
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button:hover {
+  background-color: var(--orange);
+}
+
+.button:active {
+  box-shadow: var(--darkblue) 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
+input{
+  background-color: var(--bg);
+  border: 2px solid var(--darkblue);
+  border-radius: 30px;
+  color: var(--darkblue);
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+}

@@ -7,29 +7,34 @@ app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def main():
+    return render_template("main.html")
+
+@app.route("/search/", methods=["GET", "POST"])
+def search():
     if request.method == 'POST':
         filmName=escape(request.form.get("filmName"))
-        if filmName is not None:
+        if filmName is not None or filmName != "":
             return redirect(url_for('films', filmName=filmName))
     return render_template("search_films.html")
-    
 
 @app.route("/films/<filmName>")
 def films(filmName):
     filmName = escape(filmName)
-    todisplay = "<h1>Films Infos</h1>\n"
+    todisplay = render_template("films.html")
     info_films = filmsparsing.info_film_facade.InfoFilmFacade.get_info_films(filmName)
 
     for info_film in info_films:
+        todisplay+="<div class='card'>\n"
         todisplay+=f"<p>{info_film}"
         rating = filmsparsing.info_film_facade.InfoFilmFacade.get_ratings_film(info_film.id)
         todisplay+=f"<b>Rating:</b> {rating}</p>\n"
+        todisplay+="</div>\n"
     return todisplay
 
 
 @app.errorhandler(HTTPException)
-def HTTPError(e=""):
-    return render_template('error.html', error_description=escape(e.description))
+def HTTPError(e):
+    return redirect(url_for('error', error_description=escape(e.description)))
 
 @app.route('/error/')
 @app.route('/error/<error_description>')

@@ -1,2 +1,7 @@
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+
 <h1>Error :/</h1>
 <p>{{error_description}}</p>
+<a class="button" href="{{url_for('main')}}" >Back to home</a>

@@ -22,18 +22,16 @@ class IMDbRequest:
             # it cannot reach the IMDb server
             print("Error, no internet or erroneous URL")
             abort(404, "No internet or erroneous URL")
-            return None
          
         # In case of request failure from the IMDb server
         if response.status_code != 200:
             print("Error, response code ", response.status_code)
-            abort(response.status_code, "response code "+response.status_code)
-            return None
+            abort(response.status_code, "response code "+str(response.status_code))
+
         # In case the API key is expired temporarly (restricted to 100 request per day)
         if response.json()['errorMessage'] != "":
             print("Error from IMDb server: ", response.json()['errorMessage'])
             abort(403, "From IMDb server: "+response.json()['errorMessage'])
-            return None
         
         return response
         
