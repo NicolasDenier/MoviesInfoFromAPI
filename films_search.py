@@ -41,21 +41,29 @@ def HTTPError(e):
 def error(error_description=""):
     return render_template('error.html', error_description=escape(error_description))
 
-@app.route("/film/<ID>")
-def film(ID):
-    info_film = filmsparsing.info_film_facade.InfoFilmFacade.get_ratings_film(ID)
+# @app.route("/film/<ID>")
+# def film(ID):
+#     info_film = filmsparsing.info_film_facade.InfoFilmFacade.get_ratings_film(ID)
 
+#     #print("Full Title: ",info_film.fullTitle)
+#     #print("Plot: ",info_film.plot)
+#     #print("Rating: ",info_film.imDbRating)
+#     #print("Directors: ",info_film.directors)
+#     #print("")
+#     todisplay = render_template("films.html")
+#     todisplay+="<div class='card'>\n"
+#     todisplay+=f"<p>{info_film.fullTitle}"
+#     todisplay+=f"<b>Rating:</b> {info_film.imDbRating}</p>\n"
+#     todisplay+="</div>\n"
+#     return ID
+
+if __name__ == "__main__":
+    #app.run()
+    film = filmsparsing.info_film_facade.InfoFilmFacade.get_info_films("inception")
+    info_film = filmsparsing.info_film_facade.InfoFilmFacade.get_ratings_film("tt1375666")
+    #print(info_film)
     #print("Full Title: ",info_film.fullTitle)
     #print("Plot: ",info_film.plot)
     #print("Rating: ",info_film.imDbRating)
     #print("Directors: ",info_film.directors)
     #print("")
-    todisplay = render_template("films.html")
-    todisplay+="<div class='card'>\n"
-    todisplay+=f"<p>{info_film.fullTitle}"
-    todisplay+=f"<b>Rating:</b> {info_film.imDbRating}</p>\n"
-    todisplay+="</div>\n"
-    return ID
-
-if __name__ == "__main__":
-    app.run()
