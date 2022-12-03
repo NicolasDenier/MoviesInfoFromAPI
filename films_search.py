@@ -2,6 +2,7 @@ from flask import Flask, request, render_template, redirect, url_for
 from werkzeug.exceptions import HTTPException
 from markupsafe import escape # to escape user inputs and so avoid injection attacks
 import filmsparsing.info_film_facade
+from filmsparsing import InfoFilmAll
 
 app = Flask(__name__)
 
@@ -41,29 +42,29 @@ def HTTPError(e):
 def error(error_description=""):
     return render_template('error.html', error_description=escape(error_description))
 
-# @app.route("/film/<ID>")
-# def film(ID):
-#     info_film = filmsparsing.info_film_facade.InfoFilmFacade.get_ratings_film(ID)
-
-#     #print("Full Title: ",info_film.fullTitle)
-#     #print("Plot: ",info_film.plot)
-#     #print("Rating: ",info_film.imDbRating)
-#     #print("Directors: ",info_film.directors)
-#     #print("")
-#     todisplay = render_template("films.html")
-#     todisplay+="<div class='card'>\n"
-#     todisplay+=f"<p>{info_film.fullTitle}"
-#     todisplay+=f"<b>Rating:</b> {info_film.imDbRating}</p>\n"
-#     todisplay+="</div>\n"
-#     return ID
-
-if __name__ == "__main__":
-    #app.run()
-    film = filmsparsing.info_film_facade.InfoFilmFacade.get_info_films("inception")
-    info_film = filmsparsing.info_film_facade.InfoFilmFacade.get_ratings_film("tt1375666")
-    #print(info_film)
+@app.route("/film/<ID>")
+def film(ID):
+    info_film = filmsparsing.info_film_facade.InfoFilmFacade.get_ratings_film(ID)
     #print("Full Title: ",info_film.fullTitle)
     #print("Plot: ",info_film.plot)
     #print("Rating: ",info_film.imDbRating)
     #print("Directors: ",info_film.directors)
     #print("")
+    todisplay = render_template("films.html")
+    todisplay+="<div class='container'>\n"
+    todisplay+="<div class='card'>\n"
+    todisplay+=f"<p class = 'blocktext'>{info_film.fullTitle}\n"
+    todisplay+=f"<b>Rating: </b> {info_film.imDbRating}</p>\n"
+    todisplay+="</div>\n"
+    todisplay+="<div class='plot'>\n"
+    todisplay+=f"<p class = 'blocktext'>"
+    todisplay+=f"<b>plot: </b> {info_film.plot}</p>\n"
+    todisplay+="</div>\n"
+    todisplay+="</div>\n"
+    todisplay+="<div class='affiche'>\n"
+    todisplay+=f"<img src={info_film.image}>\n"
+    todisplay+="</div>\n"
+    return todisplay
+
+if __name__ == "__main__":
+    app.run()
