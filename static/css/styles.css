@@ -12,19 +12,71 @@ body{
 }
 
 h1{
+  font-size: 40px;
   color: var(--red);
   text-shadow: -1px 0 var(--darkblue), 0 1px var(--darkblue), 1px 0 var(--darkblue), 0 -1px var(--darkblue);
+  text-align: center;
 }
 
-.card {
-  width: 20%;
-  margin: 5px;
+h2{
+  font-size: 20px;
+  color: var(--darkblue);
+  margin: -5px;
+  text-align: center;
+}
+
+a{
+  text-decoration: none;
+}
+
+button{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.star{
+  font-size: 24px;
+}
+.filled{
+  color: var(--orange);
+}
+.not-filled{
+  color: var(--darkblue);
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card{
+  width: 30%;
+  margin: 15px;
   padding: 5px;
   border: solid;
   border-width: 4px;
-  border-radius: 6px;
-  border-color:var(--red);
+  border-radius: 15px;
+  border-color: var(--red);
+  color: var(--darkblue);
+  box-shadow: var(--darkblue) 4px 4px 0 0;
+  cursor: pointer;
 }
+
+.card:hover {
+  border-color: var(--orange);
+}
+
+.card:active {
+  box-shadow: var(--darkblue) 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
 
 .button {
   background-color: var(--bg);

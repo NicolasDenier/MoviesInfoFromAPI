@@ -20,17 +20,17 @@ def search():
 @app.route("/films/<filmName>")
 def films(filmName):
     filmName = escape(filmName)
-    todisplay = render_template("films.html")
     info_films = filmsparsing.info_film_facade.InfoFilmFacade.get_info_films(filmName)
-
+    cards = ""
     for info_film in info_films:
-        todisplay+="<div class='card'>\n"
-        todisplay+=f"<p>{info_film}"
         rating = filmsparsing.info_film_facade.InfoFilmFacade.get_ratings_film(info_film.id)
-        todisplay+=f"<b>Rating:</b> {rating}</p>\n"
-        todisplay+="</div>\n"
-    return todisplay
+        cards+= render_template("card.html", ID=info_film.id, title=info_film.title, description=info_film.description, rating=rating)
+    display = render_template("films.html",cards=cards)
+    return display
 
+@app.route("/film/<ID>")
+def film(ID):
+    return ID
 
 @app.errorhandler(HTTPException)
 def HTTPError(e):

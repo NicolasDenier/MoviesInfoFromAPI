@@ -1,3 +1,6 @@
 .env
 .token
 __pycache__/
+ratings-example.json
+search-example.json
+

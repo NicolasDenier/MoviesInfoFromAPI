@@ -1,0 +1,10 @@
+<a href="{{url_for('film', ID=ID)}}" class='card'>
+    <button>
+        <p>
+            <h2>{{title}}</h2> <br>
+            {{description}}<br>
+            {{rating | safe}}
+        </p>
+    </button>
+</a>
+
