@@ -45,24 +45,38 @@ def error(error_description=""):
 @app.route("/film/<ID>")
 def film(ID):
     info_film = filmsparsing.info_film_facade.InfoFilmFacade.get_ratings_film(ID)
-    #print("Full Title: ",info_film.fullTitle)
-    #print("Plot: ",info_film.plot)
-    #print("Rating: ",info_film.imDbRating)
     #print("Directors: ",info_film.directors)
-    #print("")
     todisplay = render_template("films.html")
-    todisplay+="<div class='container'>\n"
+    todisplay+=f"<div class='card'>\n<h1>{info_film.fullTitle}</h1>\n</div>\n"
     todisplay+="<div class='card'>\n"
-    todisplay+=f"<p class = 'blocktext'>{info_film.fullTitle}\n"
-    todisplay+=f"<b>Rating: </b> {info_film.imDbRating}</p>\n"
+    todisplay+=f"<p><b>  Rating: </b> {info_film.imDbRating} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <b>  Director: </b> {info_film.directors} </p>\n"
     todisplay+="</div>\n"
-    todisplay+="<div class='plot'>\n"
-    todisplay+=f"<p class = 'blocktext'>"
-    todisplay+=f"<b>plot: </b> {info_film.plot}</p>\n"
-    todisplay+="</div>\n"
-    todisplay+="</div>\n"
+    todisplay+=f"<div class='plot'>\n<p ><b>Plot: </b> {info_film.plot}</p>\n</div>\n"
+    todisplay+="<div class='space'>\n</div>\n"
+    todisplay+="<div class='container'>\n"
     todisplay+="<div class='affiche'>\n"
     todisplay+=f"<img src={info_film.image}>\n"
+    todisplay+="</div>\n"
+    todisplay+="<div class='space'>\n</div>\n"
+    todisplay+="<div class='actors'>\n"
+    todisplay+=f"<img src={info_film.actorList[0]['image']} width = '300' height = '300'>"
+    todisplay+=f"<img src={info_film.actorList[1]['image']} width = '300' height = '300'>"
+    todisplay+=f"<img src={info_film.actorList[2]['image']} width = '300' height = '300'>"
+    todisplay+="</div>\n"
+    todisplay+="<div class='container_actor_names'>\n"
+    todisplay+="<div class='actor_names'>\n"
+    todisplay+=f"<p >"
+    todisplay+=f"{info_film.actorList[0]['name']}</p>"
+    todisplay+="</div>\n"
+    todisplay+="<div class='actor_names'>\n"
+    todisplay+=f"<p >"
+    todisplay+=f"{info_film.actorList[1]['name']}</p>"
+    todisplay+="</div>\n"
+    todisplay+="<div class='actor_names'>\n"
+    todisplay+=f"<p >"
+    todisplay+=f"{info_film.actorList[2]['name']}</p>"
+    todisplay+="</div>\n"
+    todisplay+="</div>\n"
     todisplay+="</div>\n"
     return todisplay
 
