@@ -11,6 +11,12 @@ body{
   color: var(--darkblue)
 }
 
+body.background{
+  background-image: url("https://gateway.pinata.cloud/ipfs/QmWAFa8LCuXfb4sqw1CoaqWdqFneDudktNGTJngwNY4WEP");
+  background-size: 1400px;
+  height: 2500;
+}
+
 h1{
   color: var(--red);
   text-shadow: -1px 0 var(--darkblue), 0 1px var(--darkblue), 1px 0 var(--darkblue), 0 -1px var(--darkblue);
@@ -134,9 +140,3 @@ input{
   padding: 0 18px;
   line-height: 50px;
 }
-
-/* p.blocktext {
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: center;
-} */
