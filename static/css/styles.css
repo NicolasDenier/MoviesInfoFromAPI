@@ -25,6 +25,11 @@ h2{
   text-align: center;
 }
 
+img{
+  object-fit: cover;
+  object-position: 50% 0
+}
+
 a{
   text-decoration: none;
 }
@@ -55,6 +60,19 @@ button{
   align-items: center;
 }
 
+.smallcontainer{
+  width: 50%;
+  margin-left: 15px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+div.sidebyside {
+  display: flex;
+  justify-content: center;
+}
+
 .card{
   width: 30%;
   margin: 15px;
@@ -62,54 +80,60 @@ button{
   border: solid;
   border-width: 4px;
   border-radius: 15px;
-  border-color: var(--red);
+  border-color: var(--orange);
   color: var(--darkblue);
+  background-color: antiquewhite;
   box-shadow: var(--darkblue) 4px 4px 0 0;
+}
+
+a.card{
   cursor: pointer;
 }
 
-.card:hover {
-  border-color: var(--orange);
+a.card:hover {
+  border-color: var(--red);
 }
 
-.card:active {
+a.card:active {
   box-shadow: var(--darkblue) 2px 2px 0 0;
   transform: translate(2px, 2px);
 }
 
 div.card {
-  margin: auto;
-  display:flex;
-  width: 500px;
-  background-color: antiquewhite;
-  justify-content: center;
-  border-radius: 1ch; 
+  margin: 10px;
+  width: 90%;
   border-color:var(--red);
 }
 
-div.plot {
-  margin: auto;
-  display:flex;
-  width: 500px;
-  background-color: antiquewhite;
-  justify-content: center;
-  border-radius: 1ch; 
+div.image {
+  border: solid;
+  border-width: 4px;
+  border-radius: 6px;
+  border-color:var(--red);
+  background-color: black;
+  box-shadow: var(--darkblue) 4px 4px 0 0;
 }
 
-div.container {
-  position: relative;
-}
 
 div.container_actor_names {
-  position: relative;
-  width: 900;
+  width: 90%;
   margin: auto;
+  width: -webkit-fit-content;
+  height: -webkit-fit-content;
   justify-content: center;
 }
 
 div.affiche {
   display:flex;
-  margin: auto;
+  margin: 15px;
+  width: -webkit-fit-content;
+  height: -webkit-fit-content;
+  justify-content: left;
+}
+
+div.actors {
+  display:flex;
+  margin: 15px;
   width: -webkit-fit-content;
   height: -webkit-fit-content;
   justify-content: center;
@@ -119,34 +143,20 @@ div.affiche {
   border-color:var(--red);
 }
 
-div.actors {
-  display:flex;
-  margin: auto;
-  width: -webkit-fit-content;
-  height: -webkit-fit-content;
-  justify-content: center;
-  border: solid;
-  border-width: 4px;
-  border-radius: 6px;
-  border-color:var(--red);
+.actor {
+  width: 200px;
+  height: 200px;
 }
 
 div.actor_names {
   margin: auto;
   display:flex;
-  width: 33%;
+  width: 200px;
   float: left;
   background-color: antiquewhite;
   justify-content: center;
   border-radius: 1ch; 
   border-color:var(--red);
-}
-
-div.space {
-  display:flex;
-  margin: auto;
-  justify-content: center;
-  height: 30;
 }
 
 .button {

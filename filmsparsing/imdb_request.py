@@ -46,6 +46,15 @@ class IMDbRequest:
     
     @classmethod
     def get_ratings(cls, id):
+        request = f"{cls._base_url}Ratings/{config('API_KEY')}/{id}"
+        response = cls._try_request(request)
+        
+        if response == None:
+            return Response(status_code=None, content="")
+        return Response(status_code=response.status_code, content=response.json())
+    
+    @classmethod
+    def get_all_info(cls, id):
         request = f"{cls._base_url}Title/{config('API_KEY')}/{id}"
         response = cls._try_request(request)
         

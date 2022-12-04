@@ -1,3 +1,49 @@
 <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/styles.css') }}"
+  />
 </head>
+
+<div class="container">
+  <div class="sidebyside">
+    <div class="smallcontainer">
+      <div class="card" width="100%">
+        <h1>{{info_film.fullTitle}}</h1>
+      </div>
+      <div class="card">
+        <p>
+          <b> Rating: </b> {{info_film.imDbRating}}/10
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <b> Director: </b> {{info_film.directors}}
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <b> Duration: </b> {{info_film.runtimeStr}}
+        </p>
+      </div>
+      <div class="card">
+        <p><b>Plot: </b> {{info_film.plot}}</p>
+      </div>
+      <div class="container">
+        <div class="actors image">
+          <img class="actor" src={{info_film.actorList[0]['image']}}> <img
+          class="actor" src={{info_film.actorList[1]['image']}}> <img
+          class="actor" src={{info_film.actorList[2]['image']}}>
+        </div>
+        <div class="container_actor_names">
+          <div class="image actor_names">
+            <p>{{info_film.actorList[0]['name']}}</p>
+          </div>
+          <div class="image actor_names">
+            <p>{{info_film.actorList[1]['name']}}</p>
+          </div>
+          <div class="image actor_names">
+            <p>{{info_film.actorList[2]['name']}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="affiche image">
+      <img src="{{info_film.image}}" height="700" />
+    </div>
+  </div>
+</div>

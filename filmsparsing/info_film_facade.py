@@ -27,5 +27,5 @@ class InfoFilmFacade:
 
     def get_all_info_film(id):
         film = IMDbRequest.get_all_info(id).content
-        infos_film = InfoFilmAll(film['fullTitle'], film['plot'], film['imDbRating'], film['directors'], film['image'], film['actorList'])
+        infos_film = InfoFilmAll(film['fullTitle'], film['plot'], film['imDbRating'],film['runtimeStr'], film['directors'], film['image'], film['actorList'])
         return infos_film

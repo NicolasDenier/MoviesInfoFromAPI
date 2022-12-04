@@ -9,13 +9,15 @@ class InfoFilm:
 
 
 class InfoFilmAll:
-    def __init__(self, fullTitle, plot, imDbRating, directors, image, actorList):
+    def __init__(self, fullTitle, plot, imDbRating, runtimeStr, directors, image, actorList):
         self.fullTitle = fullTitle
         self.plot = plot
         self.imDbRating = imDbRating
+        self.runtimeStr = runtimeStr
         self.directors = directors
         self.image = image
         self.actorList = actorList
+        
     
     def __repr__(self) -> str:
         return f"fulltitle: {self.fullTitle}\rimDbrating: {self.imDbRating}\n"
