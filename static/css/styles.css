@@ -11,11 +11,21 @@ body{
   color: var(--darkblue)
 }
 
+body.background{
+  background-image: url("https://gateway.pinata.cloud/ipfs/QmWAFa8LCuXfb4sqw1CoaqWdqFneDudktNGTJngwNY4WEP");
+  background-size: 1400px;
+  height: 2500;
+}
+
 h1{
   font-size: 40px;
   color: var(--red);
   text-shadow: -1px 0 var(--darkblue), 0 1px var(--darkblue), 1px 0 var(--darkblue), 0 -1px var(--darkblue);
   text-align: center;
+}
+
+h1.home{
+  color: var(--bg);
 }
 
 h2{

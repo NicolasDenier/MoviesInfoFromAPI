@@ -1,9 +1,14 @@
 <head>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/styles.css') }}"
+  />
 </head>
-
-<h1>Home</h1>
-<div class="container">
-    <p>Product presentation</p>
-    <a class="button" href="{{url_for('search')}}" >Free trial</a>
-</div>
+<body class="background">
+  <h1 class="home">Welcome</h1>
+  <a class="button" href="{{url_for('search')}}">Free trial</a>
+  <link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='css/styles.css') }}"
+  />
+</body>
