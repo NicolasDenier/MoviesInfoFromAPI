@@ -29,7 +29,7 @@ class IMDbRequest:
             abort(response.status_code, "response code "+str(response.status_code))
 
         # In case the API key is expired temporarly (restricted to 100 request per day)
-        if response.json()['errorMessage'] != "":
+        if response.json()['errorMessage'] != "" and response.json()['errorMessage'] != None:
             print("Error from IMDb server: ", response.json()['errorMessage'])
             abort(403, "From IMDb server: "+response.json()['errorMessage'])
         
@@ -46,7 +46,7 @@ class IMDbRequest:
     
     @classmethod
     def get_ratings(cls, id):
-        request = f"{cls._base_url}Ratings/{config('API_KEY')}/{id}"
+        request = f"{cls._base_url}Title/{config('API_KEY')}/{id}"
         response = cls._try_request(request)
         
         if response == None:

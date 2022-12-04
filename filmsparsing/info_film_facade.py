@@ -1,5 +1,4 @@
-from filmsparsing import IMDbRequest
-from filmsparsing import InfoFilm
+from filmsparsing import IMDbRequest, InfoFilm, InfoFilmAll
 
 class InfoFilmFacade:
 
@@ -25,3 +24,8 @@ class InfoFilmFacade:
             filled = "filled" if (intRating>i) else "not-filled"
             stars+= f"<span class='star {filled}'>&starf;</span>"
         return stars
+
+    def get_all_info_film(id):
+        film = IMDbRequest.get_all_info(id).content
+        infos_film = InfoFilmAll(film['fullTitle'], film['plot'], film['imDbRating'], film['directors'], film['image'], film['actorList'])
+        return infos_film

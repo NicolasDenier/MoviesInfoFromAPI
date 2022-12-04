@@ -77,6 +77,77 @@ button{
   transform: translate(2px, 2px);
 }
 
+div.card {
+  margin: auto;
+  display:flex;
+  width: 500px;
+  background-color: antiquewhite;
+  justify-content: center;
+  border-radius: 1ch; 
+  border-color:var(--red);
+}
+
+div.plot {
+  margin: auto;
+  display:flex;
+  width: 500px;
+  background-color: antiquewhite;
+  justify-content: center;
+  border-radius: 1ch; 
+}
+
+div.container {
+  position: relative;
+}
+
+div.container_actor_names {
+  position: relative;
+  width: 900;
+  margin: auto;
+  justify-content: center;
+}
+
+div.affiche {
+  display:flex;
+  margin: auto;
+  width: -webkit-fit-content;
+  height: -webkit-fit-content;
+  justify-content: center;
+  border: solid;
+  border-width: 4px;
+  border-radius: 6px;
+  border-color:var(--red);
+}
+
+div.actors {
+  display:flex;
+  margin: auto;
+  width: -webkit-fit-content;
+  height: -webkit-fit-content;
+  justify-content: center;
+  border: solid;
+  border-width: 4px;
+  border-radius: 6px;
+  border-color:var(--red);
+}
+
+div.actor_names {
+  margin: auto;
+  display:flex;
+  width: 33%;
+  float: left;
+  background-color: antiquewhite;
+  justify-content: center;
+  border-radius: 1ch; 
+  border-color:var(--red);
+}
+
+div.space {
+  display:flex;
+  margin: auto;
+  justify-content: center;
+  height: 30;
+}
 
 .button {
   background-color: var(--bg);
